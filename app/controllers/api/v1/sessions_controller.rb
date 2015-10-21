@@ -1,8 +1,13 @@
-class SessionsController < ApplicationController
+class Api::V1::SessionsController < ApplicationController
+
+  def new
+    request.env["omniauth.auth"]
+    render json: 'will be implemented soon'
+  end
 
   def create
-    request.env["omniauth.auth"]
-    render :ok
+   puts request.env["omniauth.auth"]
+    render json: :ok
   end
 
 end

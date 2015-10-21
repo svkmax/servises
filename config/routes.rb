@@ -56,7 +56,9 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      root 'sessions#create'
+      resources :sessions
+      root 'sessions#new'
     end
   end
+  get '/auth/:provider/callback', to: 'api/v1/sessions#create'
 end
